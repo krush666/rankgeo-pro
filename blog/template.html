@@ -1,0 +1,564 @@
+<!-- 
+  BLOG POST TEMPLATE
+  ==================
+  Instructions for creating a new blog post:
+  
+  1. COPY this file and rename it (e.g., my-new-post.html)
+  2. UPDATE the following sections:
+     
+     HEAD SECTION:
+     - <title> - Change to your blog post title
+     - <meta name="description"> - Write a unique description (150-160 chars)
+     - <meta name="keywords"> - Add relevant keywords
+     - Open Graph meta tags (og:title, og:description)
+     - Twitter meta tags (twitter:title, twitter:description)
+     - Canonical URL - Update the filename
+     - Article Schema JSON - Update headline, description, datePublished, etc.
+  
+     HERO SECTION:
+     - Breadcrumb last item - Short version of title
+     - Category Badge - Change "SEO Insights" to appropriate category
+     - H1 Title - Your main blog post title
+     - Date - Update to publish date
+     - Read time - Estimate reading time
+  
+     ARTICLE CONTENT:
+     - Featured Image - Update src and alt text
+     - Lead paragraph - Compelling intro paragraph
+     - Main content - Your article content with H2 headings
+     - Key Takeaway box - Optional summary box
+  
+     SOCIAL SHARE:
+     - Update Twitter/LinkedIn share URLs with your post slug and title
+  
+  3. Add your new post to rank_geo_ai_blog.html (the blog listing page)
+  4. Upload the new file to your server
+  
+  That's it! No need to touch header, footer, navigation, or styling.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOUR BLOG POST TITLE | Jeremy McDonald SEO Insights</title>
+    <meta name="description" content="SEO expert Jeremy McDonald explains five core signals that AI search engines use to validate entities, generate citations, and improve brand visibility in the age of GEO and AI SEO.">
+    <meta name="author" content="Jeremy McDonell">
+    <meta name="keywords" content="AI SEO, GEO, Entity Signals, AI Search, ChatGPT, Perplexity, Gemini, Knowledge Graph, Brand Visibility">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="5 Entity Signals AI Search Engines Use to Validate and Cite You">
+    <meta property="og:description" content="SEO expert Jeremy McDonald explains five core signals that AI search engines use to validate entities, generate citations, and improve brand visibility.">
+    <meta property="og:image" content="https://rankgeo.pro/og-image.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="5 Entity Signals AI Search Engines Use to Validate and Cite You">
+    <meta property="twitter:description" content="SEO expert Jeremy McDonald explains five core signals that AI search engines use to validate entities.">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://rankgeo.pro/blog/geo_entity_signals.html">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script type="module">
+        import icons from 'https://cdn.jsdelivr.net/npm/lucide@latest/+esm';
+        window.LucideIcons = icons;
+    </script>
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+    <style>
+        :root {
+            --primary-color: #FF6B35;
+            --primary-hover: #E55A2B;
+            --dark-bg: #1A1A2E;
+            --text-color: #1A1A2E;
+        }
+        
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            line-height: 1.8;
+            color: #1A1A2E;
+            background-color: #fff;
+        }
+        
+        .gradient-primary {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+        }
+        
+        .article-content h2 {
+            color: #1A1A2E;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .article-content p {
+            font-size: 1.1rem;
+            margin-bottom: 1.25rem;
+            color: #374151;
+        }
+        
+        .article-content ul, .article-content ol {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+        
+        .article-content li {
+            margin-bottom: 0.75rem;
+            color: #374151;
+        }
+        
+        .article-content code {
+            background-color: #f3f4f6;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9rem;
+            color: #FF6B35;
+        }
+        
+        .author-box {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        }
+        
+        .site-header {
+            background: transparent;
+            backdrop-filter: none;
+            border-bottom: none;
+            box-shadow: none;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .site-header.scrolled {
+            background: rgba(26, 26, 46, 0.98);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .mobile-menu {
+            display: none;
+            background: var(--dark-bg);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .mobile-menu.active {
+            display: block;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .back-to-top:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+        
+        .prose {
+            max-width: none;
+        }
+        
+        .prose h2 {
+            color: #1A1A2E;
+        }
+        
+        .prose p {
+            color: #374151;
+        }
+        
+        .prose strong {
+            color: #1A1A2E;
+        }
+        
+        @media (max-width: 768px) {
+            .article-content p {
+                font-size: 1rem;
+            }
+            
+            .article-content h2 {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+    
+    <!-- Article Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "5 Entity Signals AI Search Engines Use to Validate and Cite You",
+        "description": "SEO expert Jeremy McDonald explains five core signals that AI search engines use to validate entities, generate citations, and improve brand visibility in the age of GEO and AI SEO.",
+        "author": {
+            "@type": "Person",
+            "name": "Jeremy McDonald",
+            "url": "https://rankgeo.pro/index.html#about"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Rank GEO Pro",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://rankgeo.pro/assets/images/rocket-hero.png"
+            }
+        },
+        "datePublished": "2026-02-10",
+        "dateModified": "2026-02-10",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://rankgeo.pro/blog/geo_entity_signals.html"
+        },
+        "keywords": "AI SEO, GEO, Entity Signals, AI Search, ChatGPT, Perplexity, Gemini, Knowledge Graph, Brand Visibility",
+        "articleSection": "SEO Insights",
+        "inLanguage": "en-US"
+    }
+    </script>
+</head>
+<body class="bg-white">
+    <!-- Header -->
+    <header class="site-header fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <a href="../index.html#home" class="flex items-center gap-3 group">
+                    <img src="../assets/images/Rank GEO Pro logo.png" alt="RankGeo.pro - Generative Engine Optimization Authority" class="h-12 group-hover:scale-110 transition-transform">
+                    <span class="font-bold text-xl">
+                        <span class="text-white">RANK</span><span class="text-[#FF6B35]">GEO</span><span class="text-xs align-top ml-0.5 text-white">PRO</span>
+                    </span>
+                </a>
+
+                <!-- Navigation -->
+                <nav class="hidden md:flex items-center gap-6">
+                    <a href="../index.html#home" class="nav-link">Home</a>
+                    <a href="../index.html#services" class="nav-link">SEO GEO</a>
+                    <a href="../case_studies_geo.html" class="nav-link">Case Studies</a>
+                    <a href="../index.html#about" class="nav-link">About</a>
+                    <a href="../pricing.html" class="nav-link">Pricing</a>
+                    <a href="../index.html#contact" class="nav-link">Contact</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden p-2" onclick="toggleMobileMenu()">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="md:hidden mobile-menu">
+                <div class="py-4 space-y-2">
+                    <a href="../index.html#home" class="block px-4 py-2 text-white hover:bg-white/10">Home</a>
+                    <a href="../index.html#services" class="block px-4 py-2 text-white hover:bg-white/10">SEO GEO</a>
+                    <a href="../case_studies_geo.html" class="block px-4 py-2 text-white hover:bg-white/10">Case Studies</a>
+                    <a href="../index.html#about" class="block px-4 py-2 text-white hover:bg-white/10">About</a>
+                    <a href="../pricing.html" class="block px-4 py-2 text-white hover:bg-white/10">Pricing</a>
+                    <a href="../index.html#contact" class="block px-4 py-2 text-white hover:bg-white/10">Contact</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient pt-32 pb-20">
+        <div class="container mx-auto px-4">
+            <!-- Breadcrumb -->
+            <nav class="flex items-center gap-2 text-sm mb-8">
+                <a href="../index.html" class="text-white/60 hover:text-white transition-colors">Home</a>
+                <svg class="w-4 h-4 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+                <a href="../rank_geo_ai_blog.html" class="text-white/60 hover:text-white transition-colors">Blog</a>
+                <svg class="w-4 h-4 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+                <span class="text-white">Entity Signals</span>
+            </nav>
+            
+            <!-- Category Badge -->
+            <div class="inline-flex items-center gap-2 px-4 py-2 bg-[#FF6B35]/20 backdrop-blur-sm rounded-full mb-6">
+                <svg class="w-4 h-4 text-[#FF6B35]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                </svg>
+                <span class="text-white/90 text-sm font-medium">SEO Insights</span>
+            </div>
+            
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6 max-w-4xl">
+                5 Entity Signals AI Search Engines Use to <span class="text-[#FF6B35]">Validate and Cite You</span>
+            </h1>
+            
+            <!-- Author Meta -->
+            <div class="flex flex-wrap items-center gap-6 text-white/80">
+                <div class="flex items-center gap-3">
+                    <img src="../assets/images/profile-avatar.png" alt="Jeremy McDonald" class="w-12 h-12 rounded-full object-cover border-2 border-[#FF6B35]">
+                    <div>
+                        <div class="font-semibold text-white">Jeremy McDonald</div>
+                        <div class="text-sm text-white/60">8-year SEO professional</div>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                    </svg>
+                    <span>February 10, 2026</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <span>5 min read</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Article Content -->
+    <main class="py-16">
+        <div class="container mx-auto px-4">
+            <article class="max-w-3xl mx-auto">
+                <!-- Featured Image -->
+                <div class="mb-10 rounded-2xl overflow-hidden">
+                    <img 
+                        src="../assets/images/5%20Signals%20Checklist%20Design.webp" 
+                        alt="5 Entity Signals AI Search Engines Use to Validate and Cite You"
+                        class="w-full h-auto rounded-2xl"
+                    >
+                </div>
+
+                <!-- Article Body -->
+                <div class="article-content prose">
+                    <p class="lead text-xl text-gray-600 mb-8">
+                        SEO expert Jeremy McDonald explains five core signals that AI search engines use to validate entities, generate citations, and improve brand visibility in the age of GEO and AI SEO.
+                    </p>
+
+                    <p class="mb-6">
+                        For years, traditional SEO was all about backlinks, keywords, and technical health. But something shifted — AI search engines like <strong class="text-[#FF6B35]">ChatGPT</strong>, <strong class="text-[#FF6B35]">Perplexity</strong>, and <strong class="text-[#FF6B35]">Gemini</strong> are now driving traffic in ways Google never did. I'll be honest, I wasn't convinced at first that "AI SEO" or "GEO" (Generative Engine Optimization) was anything more than rebranded hype. After watching client conversions rise from being cited directly inside AI search results, I don't doubt it anymore. The game has changed, and we need to think in terms of <em>entity validation</em> instead of simple keyword ranking.
+                    </p>
+
+                    <h2 class="flex items-center gap-3">
+                        <span class="w-10 h-10 bg-[#FF6B35] rounded-xl flex items-center justify-center text-white text-sm font-bold">1</span>
+                        Verified Entity Consistency
+                    </h2>
+                    <p>
+                        AI search engines cross-check your entity's data—name, business type, location, and service scope—across verified sources. Inconsistent information can weaken your entity trust score. Make sure your NAP (Name, Address, Phone) is consistent everywhere, down to the punctuation. Structured data (like <code>schema.org/Organization</code>) reinforces this signal.
+                    </p>
+
+                    <h2 class="flex items-center gap-3">
+                        <span class="w-10 h-10 bg-[#FF6B35] rounded-xl flex items-center justify-center text-white text-sm font-bold">2</span>
+                        Contextual Relevance Across Mentions
+                    </h2>
+                    <p>
+                        Being mentioned in AI-readable contexts—local directories, digital publications, or even niche community posts—matters more now than raw backlinks. The algorithms extract relationships from context, not just from follow/no-follow links. When your brand appears in high-authority discussions or cited alongside verified experts, those contextual mentions boost your AI citation profile.
+                    </p>
+
+                    <h2 class="flex items-center gap-3">
+                        <span class="w-10 h-10 bg-[#FF6B35] rounded-xl flex items-center justify-center text-white text-sm font-bold">3</span>
+                        Human-Like Content Footprints
+                    </h2>
+                    <p>
+                        AI systems interpret tone and authorship markers to gauge authenticity. Brands generating content that "reads like a real person" perform better in AI ranking models. Long-form, first-hand insights (like this article) signal expertise that generative engines can trust and repeat. Consistent author presence tied to verifiable profiles strengthens this further.
+                    </p>
+
+                    <h2 class="flex items-center gap-3">
+                        <span class="w-10 h-10 bg-[#FF6B35] rounded-xl flex items-center justify-center text-white text-sm font-bold">4</span>
+                        Knowledge Graph Integration
+                    </h2>
+                    <p>
+                        Connecting your business or persona into structured knowledge systems—like Wikidata, Google's Knowledge Graph, or industry databases—is critical. AI engines pull from these datasets to validate your existence and credibility. If your brand doesn't yet have an entity ID in these ecosystems, that's step one to AI-level visibility.
+                    </p>
+
+                    <h2 class="flex items-center gap-3">
+                        <span class="w-10 h-10 bg-[#FF6B35] rounded-xl flex items-center justify-center text-white text-sm font-bold">5</span>
+                        Engagement and Freshness
+                    </h2>
+                    <p>
+                        Finally, AI search favors active and current entities. If your brand is releasing updates, earning social engagement, or being discussed in fresh contexts, you'll appear more reliable. Perception of real-time relevance is baked into large language model logic. In short, active entities earn visibility; stagnant ones fade.
+                    </p>
+
+                    <div class="my-10 p-8 bg-gradient-to-br from-[#1A1A2E] to-[#16213e] rounded-2xl text-white">
+                        <div class="flex items-start gap-4">
+                            <svg class="w-8 h-8 text-[#FF6B35] flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <div>
+                                <h3 class="text-xl font-bold mb-3 text-white">Key Takeaway</h3>
+                                <p class="text-white/80">
+                                    AI citation building isn't about gaming a new system — it's about being recognized as a <em class="text-[#FF6B35]">real, active, and expert entity</em> in your niche. I've seen these five signals repeatedly drive measurable shifts in AI-driven visibility and conversions for my clients.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Share & Author Section -->
+                    <div class="border-t border-gray-200 pt-8 mt-10">
+                        <!-- Share -->
+                        <div class="mb-8">
+                            <h4 class="font-semibold text-[#1A1A2E] mb-4">Share this article</h4>
+                            <div class="flex gap-3">
+                                <a href="https://twitter.com/intent/tweet?text=5+Entity+Signals+AI+Search+Engines+Use+to+Validate+and+Cite+You&url=https://rankgeo.pro/blog/geo_entity_signals.html" target="_blank" rel="noopener" class="w-10 h-10 bg-[#1DA1F2] rounded-full flex items-center justify-center text-white hover:scale-110 transition-transform">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+                                </a>
+                                <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://rankgeo.pro/blog/geo_entity_signals.html&title=5+Entity+Signals+AI+Search+Engines+Use+to+Validate+and+Cite+You" target="_blank" rel="noopener" class="w-10 h-10 bg-[#0077B5] rounded-full flex items-center justify-center text-white hover:scale-110 transition-transform">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path><circle cx="4" cy="4" r="2"></circle></svg>
+                                </a>
+                                <a href="mailto:?subject=5+Entity+Signals+AI+Search+Engines+Use+to+Validate+and+Cite+You&body=https://rankgeo.pro/blog/geo_entity_signals.html" class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-gray-700 hover:bg-gray-300 hover:scale-110 transition-transform">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 7.89a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Author Box -->
+                        <div class="author-box rounded-2xl p-8 text-white">
+                            <div class="flex flex-col md:flex-row gap-6 items-center md:items-start">
+                                <img src="../assets/images/profile-avatar.png" alt="Jeremy McDonald" class="w-20 h-20 rounded-full object-cover border-4 border-[#FF6B35]">
+                                <div class="text-center md:text-left">
+                                    <h3 class="text-xl font-bold mb-2">Jeremy McDonald</h3>
+                                    <p class="text-white/70 mb-4">8-year SEO professional | Over 10,000 AI citations earned for clients | GEO Specialist helping businesses become the primary AI recommendation.</p>
+                                    <div class="flex justify-center md:justify-start gap-3">
+                                        <a href="https://x.com/jeremymcdonell" target="_blank" rel="noopener" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#FF6B35] transition-colors">
+                                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+                                        </a>
+                                        <a href="https://www.linkedin.com/in/jeremy-mcdonell-34628b192/" target="_blank" rel="noopener" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#FF6B35] transition-colors">
+                                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path><circle cx="4" cy="4" r="2"></circle></svg>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <!-- Back to Blog -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4 text-center">
+            <a href="../rank_geo_ai_blog.html" class="inline-flex items-center gap-3 bg-white text-[#1A1A2E] font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl hover:bg-[#FF6B35] hover:text-white transition-all">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                </svg>
+                Back to All Articles
+            </a>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-br from-[#1A1A2E] via-[#16213e] to-[#0f3460]">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6">
+                Ready to Become an <span class="text-[#FF6B35]">AI-Verified Entity</span>?
+            </h2>
+            <p class="text-white text-lg max-w-2xl mx-auto mb-8">
+                Get your comprehensive GEO Blueprint Audit and discover exactly how to get cited by ChatGPT, Perplexity, Claude & Gemini.
+            </p>
+            <a href="../pricing.html#blueprint" class="inline-flex items-center gap-3 bg-[#FF6B35] hover:bg-[#E55A2B] text-white font-bold text-lg px-8 py-4 rounded-xl shadow-lg shadow-[#FF6B35]/30 transition-all hover:scale-105">
+                Get GEO Blueprint Audit — $750
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#1A1A2E] text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <!-- Brand Column -->
+                <div class="lg:col-span-2">
+                    <a href="../index.html#home" class="flex items-center gap-2 mb-4">
+                        <div class="w-10 h-10 bg-[#FF6B35] rounded-lg flex items-center justify-center">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <span class="font-bold text-lg">RANK<span class="text-[#FF6B35]">GEO</span><span class="text-xs align-top ml-0.5">PRO</span></span>
+                    </a>
+                    <p class="text-gray-400 text-sm mb-6 max-w-sm">Specialized GEO services for 2026. Get cited by ChatGPT, Claude & Perplexity.</p>
+                    <a href="mailto:service@rankboost.pro" class="text-gray-400 hover:text-[#FF6B35] transition-colors">service@rankboost.pro</a>
+                </div>
+                <!-- Links -->
+                <div>
+                    <h4 class="font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="../index.html#services" class="text-gray-400 text-sm hover:text-[#FF6B35]">Services</a></li>
+                        <li><a href="../case_studies_geo.html" class="text-gray-400 text-sm hover:text-[#FF6B35]">Case Studies</a></li>
+                        <li><a href="../pricing.html" class="text-gray-400 text-sm hover:text-[#FF6B35]">Pricing</a></li>
+                        <li><a href="../rank_geo_ai_blog.html" class="text-gray-400 text-sm hover:text-[#FF6B35]">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2">
+                        <li><a href="../privacy-policy.html" class="text-gray-400 text-sm hover:text-[#FF6B35]">Privacy Policy</a></li>
+                        <li><a href="../terms.html" class="text-gray-400 text-sm hover:text-[#FF6B35]">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-8 text-center text-gray-500 text-sm">
+                Copyright © 2026 Rank Boost Pro. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button onclick="scrollToTop()" class="back-to-top" aria-label="Back to top">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+        </svg>
+    </button>
+
+    <script>
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('active');
+        }
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        window.addEventListener('scroll', function() {
+            document.querySelector('.site-header').classList.toggle('scrolled', window.scrollY > 80);
+        });
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.LucideIcons) window.LucideIcons.createIcons();
+        });
+    </script>
+</body>
+</html>

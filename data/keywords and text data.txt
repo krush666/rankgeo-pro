@@ -1,0 +1,47 @@
+1. Core GEO Service Keywords
+These are your "Money Keywords." They define your category as a 2026-era agency.
+
+Generative Engine Optimization (GEO): The primary term for the new era of search.
+
+AI Citation Management: Essential for clients who want to be the "source" in a ChatGPT answer.
+
+LLM Visibility Strategy: Targeting visibility across Large Language Models (GPT, Claude, Gemini).
+
+Perplexity Answer Optimization: Specifically targeting the "Pro Search" audience.
+
+Synthetic Search Traffic: A new term for traffic originating from AI-generated answers.
+
+2. Technical & Trust Signal Keywords
+These keywords tell AI crawlers that your site is a high-authority "Entity."
+
+Entity Schema Injection: Moving beyond basic schema to complex entity relationships.
+
+Knowledge Graph Integration: Helping brands get into the "brain" of Google and AI.
+
+Topical Authority Mapping: Proving you aren't just writing blogs, but owning a subject.
+
+E-E-A-T Signal Hardening: Specifically focusing on the "Experience" and "Authoritativeness" parts of Google's guidelines.
+
+AI-Readable Data Structures: Ensuring the "scrapers" and "crawlers" can ingest your client's value proposition easily.
+
+3. Industry-Specific GEO Keywords
+Since you have 8 years of experience across Law, Medical, and SaaS, use these intent-based long-tail keywords:
+
+"Primary AI Recommendation for [Industry]": (e.g., "Primary AI Recommendation for Vegas Personal Injury Attorneys").
+
+"AI Search Verified Source": Positions your clients as the fact-checked choice.
+
+"Zero-Click Conversion Strategy": Optimizing for when the user gets the answer directly in the AI window without clicking a link.
+
+"Brand Sentiment Alignment for AI": Ensuring AI describes your brand using positive, high-value adjectives.
+
+4. Conversion-Focused "Edge" Phrases
+Integrate these into your headlines and "Process" sections to sound like the expert you are:
+
+"Stop Ranking, Start Being Cited": Your new catchphrase.
+
+"Future-Proofing for GPT-5": Shows you are looking ahead.
+
+"Algorithmic Trust Building": Sounds more technical and modern than "link building."
+
+"LLM Training Set Influence": The high-level version of "content marketing."
