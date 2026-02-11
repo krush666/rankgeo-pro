@@ -71,15 +71,37 @@ RankBoost Fuck/
 
 ## 🎯 Known Issues to Fix
 
-*Add items here as you notice them*
+### 🔥 URGENT - For Tomorrow Morning
 
-1. **Mobile Navigation** - Hamburger menu on mobile may need testing
-2. **Form Success Messages** - Success/error banners could use better styling
-3. **Image Optimization** - Some images are large (WebP would be better)
-4. **SEO Meta Tags** - Some pages may need meta description updates
-5. **Internal Linking** - Cross-link between related blog posts
-6. **Analytics** - Add Google Analytics or Plausible tracking
-7. **Sitemap** - Generate XML sitemap for better SEO
+1. **pricing.html - Accordion Comparison Chart Not Expanding**
+   - The pricing comparison accordion (Feature Deep Dive) is not expanding when clicked
+   - Need to check JavaScript toggle function and CSS transitions
+   - May be a z-index or display issue
+
+2. **case_studies_geo.html - Gemini Badges Not Working**
+   - Gemini verification badges on case study cards are not clickable/modal not opening
+   - Check `openGeminiModal()` function and modal backdrop
+   - May need to add event listeners or fix modal ID references
+
+3. **Mobile Horizontal Scroll Issue (CRITICAL)**
+   - On mobile devices, users can scroll slightly to the left revealing a white stripe
+   - Indicates content is wider than viewport or an element is overflowing
+   - **Possible causes:**
+     - Element with `width: 100vw` plus padding/margin
+     - Absolute positioned element extending beyond container
+     - Image or text too wide for mobile viewport
+     - Negative margins causing overflow
+   - **Fix approach:** Add `overflow-x: hidden` to body or find offending element with browser dev tools
+
+### Other Issues
+
+4. **Mobile Navigation** - Hamburger menu on mobile may need testing
+5. **Form Success Messages** - Success/error banners could use better styling
+6. **Image Optimization** - Some images are large (WebP would be better)
+7. **SEO Meta Tags** - Some pages may need meta description updates
+8. **Internal Linking** - Cross-link between related blog posts
+9. **Analytics** - Add Google Analytics or Plausible tracking
+10. **Sitemap** - Generate XML sitemap for better SEO
 
 ---
 
