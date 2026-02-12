@@ -6,6 +6,9 @@
     <title>Rank GEO Pro | AI Citation Management & Generative Engine Optimization</title>
     <meta name="description" content="Specialized GEO services for 2026. Get cited by ChatGPT, Claude & Perplexity. AI Citation Management, LLM Visibility Strategy & Entity Schema Injection. Stop ranking, start being cited as the primary AI recommendation.">
     <meta name="keywords" content="Generative Engine Optimization, AI Citation Management, LLM Visibility, Perplexity Answer Optimization, Synthetic Search Traffic, Entity Schema Injection, Knowledge Graph Integration, Topical Authority, E-E-T Signal Hardening, AI Search Verified Source, Zero-Click Conversion">
+    <meta name="author" content="Jeremy McDonell">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://rankgeo.pro/">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -30,11 +33,8 @@
     <!-- reCAPTCHA v2 -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     
-    <!-- Lucide Icons -->
-    <script type="module">
-        import icons from 'https://cdn.jsdelivr.net/npm/lucide@latest/+esm';
-        window.LucideIcons = icons;
-    </script>
+    <!-- Lucide Icons (Local) -->
+    <script src="assets/js/lucide.min.js"></script>
 
     <style>
         /* Custom Styles */
@@ -48,6 +48,11 @@
         }
 
         /* Global Layout Fixes */
+        html, body {
+            overflow-x: hidden;
+            max-width: 100vw;
+        }
+        
         body {
             margin: 0;
             padding: 0;
@@ -1164,12 +1169,12 @@
                                 </button>
                             </div>
 
-                            <p class="text-xs text-gray-500 text-center mt-4">
+                                <p class="text-xs text-gray-500 text-center mt-4">
                                 By submitting this form, you agree to our privacy policy. We respect your privacy.
                             </p>
                             
                             <!-- Success Banner -->
-                            <div id="successBanner" style="display: none; padding: 12px; border-radius: 8px; margin-top: 16px; text-align: center; font-weight: 600;"></div>
+                            <div id="successBanner" class="hidden"></div>
                         </form>
                     </div>
                 </div>
@@ -2591,41 +2596,42 @@
                     height: 0.375rem !important;
                 }
                 
-                /* Reduce card padding */
-                .bg-white\/5 {
-                    padding: 1.25rem !important;
-                }
-                
-                /* Smaller headings */
-                .text-2xl.md\:text-3xl {
-                    font-size: 1.5rem !important;
-                    line-height: 1.75rem !important;
-                }
-                
-                /* Center obsession meters */
-                .mt-4.md\:mt-0 {
-                    margin-top: 1rem !important;
-                }
-                
-                .flex.flex-col.md\:flex-row.md\:items-center.md\:justify-between {
-                    flex-direction: column !important;
-                    align-items: flex-start !important;
-                }
-                
-                /* Reduce gap between icon and content */
-                .flex.flex-col.md\:flex-row.items-start.gap-8 {
-                    gap: 1rem !important;
-                }
-                
-                /* Make flex-reverse work on mobile */
-                .flex-col.md\:flex-row-reverse {
-                    flex-direction: column !important;
-                }
-                
-                /* Smaller text in content */
-                .text-white\/70 {
-                    font-size: 0.875rem !important;
-                }
+        /* Reduce card padding - targeting backdrop blur cards */
+        [class*="bg-white/"] {
+            padding: 1.25rem !important;
+        }
+        
+        /* Smaller headings */
+        h3.text-2xl {
+            font-size: 1.5rem !important;
+            line-height: 1.75rem !important;
+        }
+        
+        /* Center obsession meters */
+        .mt-4 {
+            margin-top: 1rem !important;
+        }
+        
+        /* Stack flex layouts vertically on mobile */
+        .flex.flex-col {
+            flex-direction: column !important;
+            align-items: flex-start !important;
+        }
+        
+        /* Reduce gap between icon and content */
+        .flex.items-start.gap-8 {
+            gap: 1rem !important;
+        }
+        
+        /* Make flex-reverse work on mobile */
+        .flex-col {
+            flex-direction: column !important;
+        }
+        
+        /* Smaller text in content */
+        [class*="text-white/"] {
+            font-size: 0.875rem !important;
+        }
                 
                 /* Compact tags */
                 .px-3.py-1 {
@@ -2902,8 +2908,8 @@
         </footer>
     </main>
 
-    <!-- Chart.js for Performance Chart -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <!-- Chart.js (Local) -->
+    <script src="assets/js/chart.min.js"></script>
 
     <!-- Common Form Handler -->
     <script src="data/common-form-script.js"></script>
@@ -3249,84 +3255,8 @@
             });
         });
 
-        // Form Submission Handler with reCAPTCHA
-        document.getElementById('seo-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const submitButton = this.querySelector('button[type="submit"]');
-            const successBanner = document.getElementById('successBanner');
-            
-            // Check reCAPTCHA
-            const recaptchaResponse = grecaptcha.getResponse();
-            if (!recaptchaResponse) {
-                successBanner.style.display = 'block';
-                successBanner.textContent = 'Please complete the reCAPTCHA verification.';
-                successBanner.style.color = '#f44336';
-                return;
-            }
-            
-            const formData = new FormData(this);
-            const formFields = {};
-            formData.forEach((value, key) => {
-                // Parse nested form_fields object
-                if (key.startsWith('form_fields[')) {
-                    const fieldName = key.match(/form_fields\[(.+)\]/)[1];
-                    formFields[fieldName] = value;
-                } else {
-                    formFields[key] = value;
-                }
-            });
-            
-            // Show loading state
-            submitButton.disabled = true;
-            submitButton.innerHTML = '<div class="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div> Sending...';
-            successBanner.style.display = 'block';
-            successBanner.textContent = 'Sending...';
-            successBanner.style.color = '#ffffff';
-            
-            // Send to Make.com webhook with reCAPTCHA token
-            fetch('https://hook.us1.make.com/bbfn5v5ugm55nd4kzbpbkndh1yiv2i9y', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    form_fields: formFields,
-                    form_name: 'Contact Form',
-                    source: 'index.html',
-                    recaptcha_token: recaptchaResponse
-                })
-            })
-            .then(response => {
-                if (response.ok) {
-                    // Success - Make.com often returns empty body on success
-                    console.log('Form submitted successfully');
-                    successBanner.style.display = 'block';
-                    successBanner.textContent = 'Thank you! Your message has been sent successfully.';
-                    successBanner.style.color = '#4CAF50';
-                    this.reset();
-                    grecaptcha.reset(); // Reset reCAPTCHA after successful submission
-                } else {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                successBanner.style.display = 'block';
-                successBanner.textContent = 'Error submitting form. Please try again.';
-                successBanner.style.color = '#f44336';
-            })
-            .finally(() => {
-                submitButton.disabled = false;
-                submitButton.innerHTML = 'Send Message <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>';
-                // Only hide success messages automatically
-                if (successBanner.style.color === '#4CAF50') {
-                    setTimeout(() => {
-                        successBanner.style.display = 'none';
-                    }, 5000);
-                }
-            });
-        });
+        // Form submission is now handled by common-form-script.js
+        // This ensures consistent handling across all pages with reCAPTCHA support
     </script>
 </body>
 </html>

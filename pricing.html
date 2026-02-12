@@ -15,8 +15,8 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Lucide Icons (Local) -->
+    <script src="assets/js/lucide.min.js"></script>
 
     <style>
         /* Custom Styles - Matching Main Site */
@@ -29,6 +29,11 @@
             --orange-accent: #FF6B35;
         }
 
+        html, body {
+            overflow-x: hidden;
+            max-width: 100vw;
+        }
+        
         body {
             margin: 0;
             padding: 0;
@@ -682,6 +687,134 @@
         .testimonial-card-scroll {
             transform-style: preserve-3d;
             perspective: 1000px;
+        }
+
+        /* Accordion Styles */
+        .accordion-item {
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            margin-bottom: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .accordion-item:hover {
+            border-color: rgba(255, 107, 53, 0.3);
+            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.1);
+        }
+
+        .accordion-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 24px;
+            cursor: pointer;
+            background: white;
+            transition: all 0.3s ease;
+        }
+
+        .accordion-header:hover {
+            background: rgba(255, 107, 53, 0.02);
+        }
+
+        .accordion-title {
+            font-weight: 600;
+            color: #1A1A2E;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .accordion-icon {
+            transition: transform 0.3s ease;
+            color: #FF6B35;
+        }
+
+        .accordion-item.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+            background: rgba(255, 107, 53, 0.02);
+        }
+
+        .accordion-content-inner {
+            padding: 0 24px 20px;
+        }
+
+        .accordion-item.active .accordion-content {
+            max-height: 500px;
+        }
+
+        .feature-row {
+            display: grid;
+            grid-template-columns: 1fr auto auto auto;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            align-items: center;
+        }
+
+        .feature-row:last-child {
+            border-bottom: none;
+        }
+
+        .feature-name {
+            font-weight: 500;
+            color: #1A1A2E;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .feature-value {
+            text-align: center;
+            font-size: 0.9rem;
+            padding: 8px 16px;
+            border-radius: 8px;
+        }
+
+        .feature-value.audit {
+            color: #6b7280;
+            background: #f3f4f6;
+        }
+
+        .feature-value.growth {
+            color: #1A1A2E;
+            background: #fff7ed;
+            border: 1px solid #FF6B35;
+            font-weight: 500;
+        }
+
+        .feature-value.elite {
+            color: white;
+            background: linear-gradient(135deg, #FF6B35 0%, #E55A2B 100%);
+            font-weight: 600;
+        }
+
+        @media (max-width: 1024px) {
+            .feature-row {
+                grid-template-columns: 1fr;
+                gap: 8px;
+                text-align: left;
+            }
+            
+            .feature-name {
+                font-weight: 600;
+            }
+            
+            .feature-value {
+                text-align: left;
+            }
+            
+            .feature-value::before {
+                content: attr(data-label) ': ';
+                font-weight: 600;
+                color: #666;
+            }
         }
     </style>
 
@@ -1425,7 +1558,7 @@
             </div>
         </section>
 
-        <!-- Feature Deep Dive Section -->
+        <!-- Feature Deep Dive Section - Accordion Style -->
         <section class="section bg-white overflow-hidden">
             <div class="container">
                 <div class="text-center mb-16 scroll-reveal">
@@ -1433,96 +1566,181 @@
                         Feature <span class="text-[#FF6B35]">Deep Dive</span>
                     </h2>
                     <p class="text-gray-600 max-w-2xl mx-auto">
-                        Compare our GEO Obsession levels and see how we move you from being "indexed" to being "cited."
+                        Click on any feature category below to see detailed comparisons across our GEO Obsession levels.
                     </p>
                 </div>
 
-                <!-- Feature Comparison - Responsive Grid -->
-                <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
-                    <!-- Header Row -->
+                <!-- Header Columns (Always Visible) -->
+                <div class="grid grid-cols-1 lg:grid-cols-4 gap-4 mb-4">
                     <div class="hidden lg:block p-4">
                         <span class="text-sm font-bold text-gray-400 uppercase tracking-wider">Features</span>
                     </div>
-                    <div class="p-6 rounded-2xl bg-gray-50 text-center border-t-4 border-gray-300 lg:border-l lg:border-t-0">
+                    <div class="p-4 rounded-2xl bg-gray-50 text-center border-t-4 border-gray-300 lg:border-l lg:border-t-0">
                         <span class="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">Level 1</span>
                         <h4 class="font-bold text-[#1A1A2E]">Blueprint Audit</h4>
                     </div>
-                    <div class="p-6 rounded-2xl bg-orange-50 text-center border-t-4 border-[#FF6B35] lg:border-l lg:border-t-0 relative">
+                    <div class="p-4 rounded-2xl bg-orange-50 text-center border-t-4 border-[#FF6B35] lg:border-l lg:border-t-0 relative">
                         <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#FF6B35] text-white text-[10px] px-3 py-1 rounded-full font-bold">STABLE GROWTH</div>
                         <span class="block text-xs font-bold uppercase tracking-wider text-[#FF6B35] mb-2">Level 2</span>
                         <h4 class="font-bold text-[#1A1A2E]">GEO Growth</h4>
                     </div>
-                    <div class="p-6 rounded-2xl bg-[#1A1A2E] text-center border-t-4 border-[#FFD700] lg:border-l lg:border-t-0">
+                    <div class="p-4 rounded-2xl bg-[#1A1A2E] text-center border-t-4 border-[#FFD700] lg:border-l lg:border-t-0">
                         <span class="block text-xs font-bold uppercase tracking-wider text-orange-400 mb-2">Level 3</span>
                         <h4 class="font-bold text-white">GEO Elite</h4>
                     </div>
+                </div>
 
-                    <!-- Feature Rows -->
-                    <!-- AI Visibility Testing -->
-                    <div class="lg:col-span-4 grid grid-cols-1 lg:grid-cols-4 gap-4 p-4 lg:p-6 rounded-xl hover:bg-gray-50 transition-colors items-center">
-                        <div class="flex items-center gap-3">
-                            <i data-lucide="eye" class="w-5 h-5 text-[#FF6B35] lg:hidden"></i>
-                            <span class="font-semibold text-[#1A1A2E]">AI Visibility Testing</span>
+                <!-- Accordion Items -->
+                <div class="space-y-4">
+                    
+                    <!-- Accordion Item 1: AI Visibility Testing -->
+                    <div class="accordion-item">
+                        <div class="accordion-header" onclick="toggleFeatureAccordion(this)">
+                            <div class="accordion-title">
+                                <i data-lucide="eye" class="w-5 h-5 text-[#FF6B35]"></i>
+                                AI Visibility Testing
+                            </div>
+                            <i data-lucide="chevron-down" class="w-5 h-5 accordion-icon"></i>
                         </div>
-                        <div class="text-center lg:text-left lg:pl-4 text-sm text-gray-600 pl-8">Initial Snapshot</div>
-                        <div class="text-center lg:text-left lg:pl-4 text-sm font-medium text-[#1A1A2E] pl-8">Monthly Monitoring</div>
-                        <div class="text-center lg:text-left lg:pl-4 text-sm font-bold text-[#FF6B35] pl-8">Real-Time Weekly Audit</div>
+                        <div class="accordion-content">
+                            <div class="accordion-content-inner">
+                                <div class="feature-row">
+                                    <span class="feature-name"><i data-lucide="eye" class="w-4 h-4 text-[#FF6B35] lg:hidden"></i>AI Visibility Testing</span>
+                                    <span class="feature-value audit" data-label="Blueprint">Initial Snapshot</span>
+                                    <span class="feature-value growth" data-label="Growth">Monthly Monitoring</span>
+                                    <span class="feature-value elite" data-label="Elite">Real-Time Weekly Audit</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
-                    <!-- Entity Schema Injection -->
-                    <div class="lg:col-span-4 grid grid-cols-1 lg:grid-cols-4 gap-4 p-4 lg:p-6 rounded-xl hover:bg-gray-50 transition-colors items-center">
-                        <div class="flex items-center gap-3">
-                            <i data-lucide="code-2" class="w-5 h-5 text-[#FF6B35] lg:hidden"></i>
-                            <span class="font-semibold text-[#1A1A2E]">Entity Schema Injection</span>
+                    <!-- Accordion Item 2: Entity Schema Injection -->
+                    <div class="accordion-item">
+                        <div class="accordion-header" onclick="toggleFeatureAccordion(this)">
+                            <div class="accordion-title">
+                                <i data-lucide="code-2" class="w-5 h-5 text-[#FF6B35]"></i>
+                                Entity Schema Injection
+                            </div>
+                            <i data-lucide="chevron-down" class="w-5 h-5 accordion-icon"></i>
                         </div>
-                        <div class="text-center lg:text-left lg:pl-4 text-gray-400 pl-8"><i data-lucide="minus" class="w-4 h-4 mx-auto lg:mx-0"></i></div>
-                        <div class="text-center lg:text-left lg:pl-4 text-sm text-gray-600 pl-8">Standard Schema</div>
-                        <div class="text-center lg:text-left lg:pl-4 text-sm font-bold text-[#FF6B35] pl-8">Advanced Graph Linking</div>
+                        <div class="accordion-content">
+                            <div class="accordion-content-inner">
+                                <div class="feature-row">
+                                    <span class="feature-name"><i data-lucide="code-2" class="w-4 h-4 text-[#FF6B35] lg:hidden"></i>Entity Schema Injection</span>
+                                    <span class="feature-value audit" data-label="Blueprint"><i data-lucide="minus" class="w-4 h-4"></i></span>
+                                    <span class="feature-value growth" data-label="Growth">Standard Schema</span>
+                                    <span class="feature-value elite" data-label="Elite">Advanced Graph Linking</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
-                    <!-- Citation Sources -->
-                    <div class="lg:col-span-4 grid grid-cols-1 lg:grid-cols-4 gap-4 p-4 lg:p-6 rounded-xl hover:bg-gray-50 transition-colors items-center">
-                        <div class="flex items-center gap-3">
-                            <i data-lucide="database" class="w-5 h-5 text-[#FF6B35] lg:hidden"></i>
-                            <span class="font-semibold text-[#1A1A2E]">Citation Sources</span>
+                    <!-- Accordion Item 3: Citation Sources -->
+                    <div class="accordion-item">
+                        <div class="accordion-header" onclick="toggleFeatureAccordion(this)">
+                            <div class="accordion-title">
+                                <i data-lucide="database" class="w-5 h-5 text-[#FF6B35]"></i>
+                                Citation Sources
+                            </div>
+                            <i data-lucide="chevron-down" class="w-5 h-5 accordion-icon"></i>
                         </div>
-                        <div class="text-center lg:text-left lg:pl-4 text-sm text-gray-500 pl-8">List of Opportunities</div>
-                        <div class="text-center lg:text-left lg:pl-4 text-sm text-gray-600 pl-8">3-5 Key Citations/mo</div>
-                        <div class="text-center lg:text-left lg:pl-4 text-sm font-bold text-[#FF6B35] pl-8">Aggressive Citation Scaling</div>
+                        <div class="accordion-content">
+                            <div class="accordion-content-inner">
+                                <div class="feature-row">
+                                    <span class="feature-name"><i data-lucide="database" class="w-4 h-4 text-[#FF6B35] lg:hidden"></i>Citation Sources</span>
+                                    <span class="feature-value audit" data-label="Blueprint">List of Opportunities</span>
+                                    <span class="feature-value growth" data-label="Growth">3-5 Key Citations/mo</span>
+                                    <span class="feature-value elite" data-label="Elite">Aggressive Citation Scaling</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
-                    <!-- Strategy Support -->
-                    <div class="lg:col-span-4 grid grid-cols-1 lg:grid-cols-4 gap-4 p-4 lg:p-6 rounded-xl hover:bg-gray-50 transition-colors items-center">
-                        <div class="flex items-center gap-3">
-                            <i data-lucide="users" class="w-5 h-5 text-[#FF6B35] lg:hidden"></i>
-                            <span class="font-semibold text-[#1A1A2E]">Strategy Support</span>
+                    <!-- Accordion Item 4: Strategy Support -->
+                    <div class="accordion-item">
+                        <div class="accordion-header" onclick="toggleFeatureAccordion(this)">
+                            <div class="accordion-title">
+                                <i data-lucide="users" class="w-5 h-5 text-[#FF6B35]"></i>
+                                Strategy Support
+                            </div>
+                            <i data-lucide="chevron-down" class="w-5 h-5 accordion-icon"></i>
                         </div>
-                        <div class="text-center lg:text-left lg:pl-4 text-sm text-gray-500 pl-8">Report Only</div>
-                        <div class="text-center lg:text-left lg:pl-4 text-sm text-gray-600 pl-8">1 Strategy Call</div>
-                        <div class="text-center lg:text-left lg:pl-4 text-sm font-bold text-[#FF6B35] pl-8">Priority VIP Access</div>
+                        <div class="accordion-content">
+                            <div class="accordion-content-inner">
+                                <div class="feature-row">
+                                    <span class="feature-name"><i data-lucide="users" class="w-4 h-4 text-[#FF6B35] lg:hidden"></i>Strategy Support</span>
+                                    <span class="feature-value audit" data-label="Blueprint">Report Only</span>
+                                    <span class="feature-value growth" data-label="Growth">1 Strategy Call</span>
+                                    <span class="feature-value elite" data-label="Elite">Priority VIP Access</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
-                    <!-- CTA Buttons Row -->
-                    <div class="lg:col-span-4 grid grid-cols-1 gap-4 lg:grid-cols-4 mt-8 pt-8 border-t border-gray-100">
-                        <div class="hidden lg:block"></div>
-                        <div class="text-center">
-                            <a href="index.html#contact" class="inline-flex items-center gap-2 px-6 py-3 border-2 border-gray-300 text-gray-500 rounded-xl font-bold hover:border-[#FF6B35] hover:text-[#FF6B35] transition-all duration-300 w-full lg:w-auto justify-center">
-                                Get Audit
-                                <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                            </a>
+                    <!-- Accordion Item 5: Content Updates -->
+                    <div class="accordion-item">
+                        <div class="accordion-header" onclick="toggleFeatureAccordion(this)">
+                            <div class="accordion-title">
+                                <i data-lucide="file-text" class="w-5 h-5 text-[#FF6B35]"></i>
+                                Content Updates
+                            </div>
+                            <i data-lucide="chevron-down" class="w-5 h-5 accordion-icon"></i>
                         </div>
-                        <div class="text-center">
-                            <a href="index.html#contact" class="inline-flex items-center gap-2 px-6 py-3 bg-[#FF6B35] text-white rounded-xl font-bold hover:bg-[#E55A2B] transition-all duration-300 shadow-lg hover:shadow-xl w-full lg:w-auto justify-center">
-                                Select Growth
-                                <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                            </a>
+                        <div class="accordion-content">
+                            <div class="accordion-content-inner">
+                                <div class="feature-row">
+                                    <span class="feature-name"><i data-lucide="file-text" class="w-4 h-4 text-[#FF6B35] lg:hidden"></i>Content Updates</span>
+                                    <span class="feature-value audit" data-label="Blueprint">Recommendations</span>
+                                    <span class="feature-value growth" data-label="Growth">2-4 Pages/mo</span>
+                                    <span class="feature-value elite" data-label="Elite">Unlimited Pages</span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="text-center">
-                            <a href="index.html#contact" class="inline-flex items-center gap-2 px-6 py-3 bg-[#1A1A2E] text-white rounded-xl font-bold hover:bg-[#16213e] transition-all duration-300 shadow-lg hover:shadow-xl w-full lg:w-auto justify-center">
-                                Go Elite
-                                <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                            </a>
+                    </div>
+
+                    <!-- Accordion Item 6: Technical SEO -->
+                    <div class="accordion-item">
+                        <div class="accordion-header" onclick="toggleFeatureAccordion(this)">
+                            <div class="accordion-title">
+                                <i data-lucide="cog" class="w-5 h-5 text-[#FF6B35]"></i>
+                                Technical SEO
+                            </div>
+                            <i data-lucide="chevron-down" class="w-5 h-5 accordion-icon"></i>
                         </div>
+                        <div class="accordion-content">
+                            <div class="accordion-content-inner">
+                                <div class="feature-row">
+                                    <span class="feature-name"><i data-lucide="cog" class="w-4 h-4 text-[#FF6B35] lg:hidden"></i>Technical SEO</span>
+                                    <span class="feature-value audit" data-label="Blueprint">Audit Only</span>
+                                    <span class="feature-value growth" data-label="Growth">Monthly Checks</span>
+                                    <span class="feature-value elite" data-label="Elite">Weekly Monitoring</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+        <!-- CTA Buttons Row -->
+                <div class="grid grid-cols-1 gap-4 lg:grid-cols-4 mt-8 pt-8 border-t border-gray-100">
+                    <div class="hidden lg:block"></div>
+                    <div class="text-center">
+                        <a href="index.html#contact" class="inline-flex items-center gap-2 px-6 py-3 border-2 border-gray-300 text-gray-500 rounded-xl font-bold hover:border-[#FF6B35] hover:text-[#FF6B35] transition-all duration-300 w-full lg:w-auto justify-center">
+                            Get Audit
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                    <div class="text-center">
+                        <a href="index.html#contact" class="inline-flex items-center gap-2 px-6 py-3 bg-[#FF6B35] text-white rounded-xl font-bold hover:bg-[#E55A2B] transition-all duration-300 shadow-lg hover:shadow-xl w-full lg:w-auto justify-center">
+                            Select Growth
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                    <div class="text-center">
+                        <a href="index.html#contact" class="inline-flex items-center gap-2 px-6 py-3 bg-[#1A1A2E] text-white rounded-xl font-bold hover:bg-[#16213e] transition-all duration-300 shadow-lg hover:shadow-xl w-full lg:w-auto justify-center">
+                            Go Elite
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -1983,6 +2201,12 @@
         function toggleFaq(element) {
             const faqItem = element.parentElement;
             faqItem.classList.toggle('active');
+        }
+
+        // Feature Accordion Toggle
+        function toggleFeatureAccordion(element) {
+            const accordionItem = element.parentElement;
+            accordionItem.classList.toggle('active');
         }
 
         // Gemini Modal Functions

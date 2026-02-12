@@ -1,0 +1,234 @@
+        <!-- FAQ Section with Accordion -->
+        <section id="faq" class="section bg-gradient-to-br from-[#1A1A2E] via-[#16213e] to-[#0f3460] relative overflow-hidden">
+            <!-- Background Elements -->
+            <div class="absolute inset-0 opacity-5" style="background-image: linear-gradient(rgba(255,107,53,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,107,53,0.3) 1px, transparent 1px); background-size: 60px 60px;"></div>
+            <div class="absolute top-20 right-10 w-64 h-64 bg-[#FF6B35]/10 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-20 left-10 w-80 h-80 bg-[#FFD700]/5 rounded-full blur-3xl"></div>
+            
+            <div class="container relative z-10">
+                <!-- Section Header -->
+                <div class="text-center mb-16 scroll-reveal">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 bg-[#FF6B35]/20 border border-[#FF6B35]/30 rounded-full mb-6">
+                        <svg class="w-4 h-4 text-[#FF6B35]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <span class="text-[#FF6B35] text-sm font-bold tracking-wider uppercase">FAQ</span>
+                    </div>
+                    <h2 class="text-4xl sm:text-5xl font-bold text-white mb-6">
+                        Frequently Asked <span class="text-[#FF6B35]">Questions</span>
+                    </h2>
+                    <p class="text-lg text-white/70 max-w-3xl mx-auto">
+                        Everything you need to know about Generative Engine Optimization, AI Citation Management, and how we help you become the primary AI recommendation.
+                    </p>
+                </div>
+
+                <!-- FAQ Accordion -->
+                <div class="max-w-4xl mx-auto space-y-4">
+                    <!-- FAQ Item 1 -->
+                    <div class="faq-item bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden hover:border-[#FF6B35]/30 transition-all duration-300 scroll-reveal">
+                        <button class="faq-trigger w-full px-6 py-5 flex items-center justify-between text-left" onclick="toggleFaq(this)">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 bg-gradient-to-br from-[#FF6B35] to-[#E55A2B] rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <span class="text-white font-bold">01</span>
+                                </div>
+                                <h3 class="text-lg font-semibold text-white pr-4">What is Generative Engine Optimization (GEO)?</h3>
+                            </div>
+                            <svg class="faq-icon w-6 h-6 text-[#FF6B35] transition-transform duration-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="faq-content hidden px-6 pb-6">
+                            <div class="pl-14">
+                                <p class="text-white/70 leading-relaxed">
+                                    <strong class="text-[#FF6B35]">Generative Engine Optimization (GEO)</strong> is the practice of optimizing your business to be cited and recommended by AI search engines like ChatGPT, Perplexity, Claude, and Gemini. Unlike traditional SEO that focuses on ranking in Google, GEO ensures your business appears as the trusted recommendation when AI engines answer user queries. It's about <em>Stop Ranking, Start Being Cited</em>.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 2 -->
+                    <div class="faq-item bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden hover:border-[#FF6B35]/30 transition-all duration-300 scroll-reveal">
+                        <button class="faq-trigger w-full px-6 py-5 flex items-center justify-between text-left" onclick="toggleFaq(this)">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 bg-gradient-to-br from-[#FFD700] to-[#FFA500] rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <span class="text-white font-bold">02</span>
+                                </div>
+                                <h3 class="text-lg font-semibold text-white pr-4">How does AI Citation Management work?</h3>
+                            </div>
+                            <svg class="faq-icon w-6 h-6 text-[#FFD700] transition-transform duration-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="faq-content hidden px-6 pb-6">
+                            <div class="pl-14">
+                                <p class="text-white/70 leading-relaxed">
+                                    <strong class="text-[#FFD700]">AI Citation Management</strong> involves strategically positioning your brand across the digital ecosystem so Large Language Models (LLMs) recognize you as an authoritative source. We use <em>Entity Schema Injection</em>, <em>Knowledge Graph Integration</em>, and <em>Topical Authority Mapping</em> to ensure AI systems cite your business when answering relevant queries.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 3 -->
+                    <div class="faq-item bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden hover:border-[#FF6B35]/30 transition-all duration-300 scroll-reveal">
+                        <button class="faq-trigger w-full px-6 py-5 flex items-center justify-between text-left" onclick="toggleFaq(this)">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 bg-gradient-to-br from-[#FF6B35] to-[#E55A2B] rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <span class="text-white font-bold">03</span>
+                                </div>
+                                <h3 class="text-lg font-semibold text-white pr-4">What's the difference between GEO and traditional SEO?</h3>
+                            </div>
+                            <svg class="faq-icon w-6 h-6 text-[#FF6B35] transition-transform duration-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="faq-content hidden px-6 pb-6">
+                            <div class="pl-14">
+                                <p class="text-white/70 leading-relaxed">
+                                    Traditional SEO focuses on ranking in search engine results pages (SERPs) for keyword-based queries. <strong class="text-[#FF6B35]">GEO focuses on LLM Visibility Strategy</strong>—being cited and referenced by AI engines as a trusted source. When someone asks an AI "Who is the best lawyer near me?" or "What's the best product for X?", GEO ensures your business is the recommended answer. It's about <em>Algorithmic Trust Building</em> rather than just link building.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 4 -->
+                    <div class="faq-item bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden hover:border-[#FF6B35]/30 transition-all duration-300 scroll-reveal">
+                        <button class="faq-trigger w-full px-6 py-5 flex items-center justify-between text-left" onclick="toggleFaq(this)">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 bg-gradient-to-br from-[#FFD700] to-[#FFA500] rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <span class="text-white font-bold">04</span>
+                                </div>
+                                <h3 class="text-lg font-semibold text-white pr-4">What is Perplexity Answer Optimization?</h3>
+                            </div>
+                            <svg class="faq-icon w-6 h-6 text-[#FFD700] transition-transform duration-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="faq-content hidden px-6 pb-6">
+                            <div class="pl-14">
+                                <p class="text-white/70 leading-relaxed">
+                                    <strong class="text-[#FFD700]">Perplexity Answer Optimization</strong> specifically targets the "Pro Search" audience using Perplexity AI. We structure your content with <em>AI-Readable Data Structures</em> and <em>E-E-A-T Signal Hardening</em> so Perplexity's engine recognizes your brand as a verified source. This positions you as an <em>AI Search Verified Source</em> for high-intent queries.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 5 -->
+                    <div class="faq-item bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden hover:border-[#FF6B35]/30 transition-all duration-300 scroll-reveal">
+                        <button class="faq-trigger w-full px-6 py-5 flex items-center justify-between text-left" onclick="toggleFaq(this)">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 bg-gradient-to-br from-[#FF6B35] to-[#E55A2B] rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <span class="text-white font-bold">05</span>
+                                </div>
+                                <h3 class="text-lg font-semibold text-white pr-4">How long until I see results from GEO?</h3>
+                            </div>
+                            <svg class="faq-icon w-6 h-6 text-[#FF6B35] transition-transform duration-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="faq-content hidden px-6 pb-6">
+                            <div class="pl-14">
+                                <p class="text-white/70 leading-relaxed">
+                                    Most clients begin seeing measurable results within <strong class="text-[#FF6B35]">30-60 days</strong>, with significant improvements in AI citations and <em>Synthetic Search Traffic</em> occurring within 3-6 months. Our <em>Future-Proofing for GPT-5</em> approach ensures your visibility compounds over time as AI engines evolve. The timeline depends on your current online presence, competition, and the extent of optimization needed.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 6 -->
+                    <div class="faq-item bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden hover:border-[#FF6B35]/30 transition-all duration-300 scroll-reveal">
+                        <button class="faq-trigger w-full px-6 py-5 flex items-center justify-between text-left" onclick="toggleFaq(this)">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 bg-gradient-to-br from-[#FFD700] to-[#FFA500] rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <span class="text-white font-bold">06</span>
+                                </div>
+                                <h3 class="text-lg font-semibold text-white pr-4">What is a Zero-Click Conversion Strategy?</h3>
+                            </div>
+                            <svg class="faq-icon w-6 h-6 text-[#FFD700] transition-transform duration-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="faq-content hidden px-6 pb-6">
+                            <div class="pl-14">
+                                <p class="text-white/70 leading-relaxed">
+                                    A <strong class="text-[#FFD700]">Zero-Click Conversion Strategy</strong> optimizes for when users get the answer directly in the AI window without clicking a link. We ensure your brand is prominently featured in AI responses with compelling value propositions, contact information, and strong <em>Brand Sentiment Alignment for AI</em>. This captures high-intent leads even when they don't visit your website immediately.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 7 -->
+                    <div class="faq-item bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden hover:border-[#FF6B35]/30 transition-all duration-300 scroll-reveal">
+                        <button class="faq-trigger w-full px-6 py-5 flex items-center justify-between text-left" onclick="toggleFaq(this)">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 bg-gradient-to-br from-[#FF6B35] to-[#E55A2B] rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <span class="text-white font-bold">07</span>
+                                </div>
+                                <h3 class="text-lg font-semibold text-white pr-4">What industries benefit most from GEO?</h3>
+                            </div>
+                            <svg class="faq-icon w-6 h-6 text-[#FF6B35] transition-transform duration-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="faq-content hidden px-6 pb-6">
+                            <div class="pl-14">
+                                <p class="text-white/70 leading-relaxed">
+                                    Any business wanting to be the <em>Primary AI Recommendation for [Industry]</em> can benefit from GEO. We specialize in law firms, medical practices, service businesses, e-commerce brands, B2B companies, and professional services. Our <em>LLM Training Set Influence</em> strategies help you dominate AI search results in your specific niche.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 8 -->
+                    <div class="faq-item bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden hover:border-[#FF6B35]/30 transition-all duration-300 scroll-reveal">
+                        <button class="faq-trigger w-full px-6 py-5 flex items-center justify-between text-left" onclick="toggleFaq(this)">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 bg-gradient-to-br from-[#FFD700] to-[#FFA500] rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <span class="text-white font-bold">08</span>
+                                </div>
+                                <h3 class="text-lg font-semibold text-white pr-4">What's included in your GEO services?</h3>
+                            </div>
+                            <svg class="faq-icon w-6 h-6 text-[#FFD700] transition-transform duration-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="faq-content hidden px-6 pb-6">
+                            <div class="pl-14">
+                                <p class="text-white/70 leading-relaxed mb-4">
+                                    Our comprehensive GEO services include:
+                                </p>
+                                <ul class="space-y-2 text-white/70">
+                                    <li class="flex items-start gap-2">
+                                        <svg class="w-5 h-5 text-[#FF6B35] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                        <span>AI Footprint Analysis across all major LLMs</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <svg class="w-5 h-5 text-[#FF6B35] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                        <span>Entity Schema Injection & Knowledge Graph Integration</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <svg class="w-5 h-5 text-[#FF6B35] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                        <span>E-E-A-T Signal Hardening</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <svg class="w-5 h-5 text-[#FF6B35] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                        <span>Content structuring for AI extraction</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <svg class="w-5 h-5 text-[#FF6B35] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                        <span>Ongoing AI citation monitoring</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>

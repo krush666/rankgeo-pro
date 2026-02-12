@@ -8,9 +8,11 @@
     <link rel="icon" href="assets/images/Rank GEO Pro logo.png" type="image/png">
     <link rel="canonical" href="https://rankgeo.pro/privacy-policy">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Lucide Icons (Local) -->
+    <script src="assets/js/lucide.min.js"></script>
     <style>
         :root { --primary-color: #FF6B35; --primary-hover: #E55A2B; --dark-bg: #1A1A2E; }
+        html, body { overflow-x: hidden; max-width: 100vw; }
         body { margin: 0; padding: 0; box-sizing: border-box; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
         .site-header { background: rgba(26, 26, 46, 0.98); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.08); }
@@ -22,7 +24,7 @@
         .section { padding: 80px 0; }
         .scroll-reveal { opacity: 0; transform: translateY(30px); transition: all 0.6s; }
         .scroll-reveal.visible { opacity: 1; transform: translateY(0); }
-        .back-to-top { position: fixed; bottom: 20px; right: 20px; width: 50px; height: 50px; background: var(--primary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; cursor: pointer; z-index: 1000; transition: all 0.3s; border: none; }
+        .back-to-top { position: fixed; bottom: 20px; right: 20px; width: 50px; height: 50px; background: var(--primary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; cursor: pointer; z-index: 1000; transition: all 0.3s; }
         .back-to-top:hover { background: var(--primary-hover); transform: translateY(-2px); }
     </style>
 </head>
@@ -37,7 +39,7 @@
                 <nav class="hidden md:flex items-center gap-6">
                     <a href="index.html#home" class="nav-link">Home</a>
                     <a href="index.html#services" class="nav-link">SEO GEO</a>
-                    <a href="case_studies_geo.html" class="nav-link">Case Studies</a>
+                    <a href="geo-casestudies.html" class="nav-link">Case Studies</a>
                     <a href="index.html#about" class="nav-link">About</a>
                     <a href="pricing.html" class="nav-link">Pricing</a>
                     <a href="index.html#contact" class="nav-link">Contact</a>
@@ -50,7 +52,7 @@
                 <div class="py-4 space-y-2">
                     <a href="index.html#home" class="block px-4 py-2 text-white hover:bg-white/10">Home</a>
                     <a href="index.html#services" class="block px-4 py-2 text-white hover:bg-white/10">SEO GEO</a>
-                    <a href="case_studies_geo.html" class="block px-4 py-2 text-white hover:bg-white/10">Case Studies</a>
+                    <a href="geo-casestudies.html" class="block px-4 py-2 text-white hover:bg-white/10">Case Studies</a>
                     <a href="index.html#about" class="block px-4 py-2 text-white hover:bg-white/10">About</a>
                     <a href="pricing.html" class="block px-4 py-2 text-white hover:bg-white/10">Pricing</a>
                     <a href="index.html#contact" class="block px-4 py-2 text-white hover:bg-white/10">Contact</a>
@@ -167,6 +169,7 @@
     <footer class="bg-[#1A1A2E] text-white pt-16 pb-8">
         <div class="container">
             <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
+                <!-- Brand Column -->
                 <div class="lg:col-span-2">
                     <a href="index.html#home" class="flex items-center gap-2 mb-4">
                         <img src="assets/images/Rank GEO Pro logo.png" alt="RankGeo.pro" class="h-10">
@@ -175,6 +178,7 @@
                     <p class="text-gray-400 text-sm mb-6 max-w-sm">
                         Specialized GEO services for 2026. Get cited by ChatGPT, Claude & Perplexity. AI Citation Management & Entity Schema Injection experts. Stop ranking, start being cited.
                     </p>
+                    <!-- Contact Info -->
                     <div class="space-y-3">
                         <a href="mailto:service@rankgeo.pro" class="flex items-center gap-3 text-gray-400 hover:text-[#FF6B35] transition-colors">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 7.89a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
@@ -191,8 +195,87 @@
                     </div>
                 </div>
 
+                <!-- Services Column -->
                 <div>
                     <h4 class="font-semibold mb-4">Services</h4>
                     <ul class="space-y-2">
                         <li><a href="index.html#services" class="text-gray-400 text-sm hover:text-[#FF6B35] transition-colors">SEO GEO</a></li>
-                        <li><a href="pricing.html" class="text-gray-400 text-sm hover:text-[#FF6
+                        <li><a href="pricing.html" class="text-gray-400 text-sm hover:text-[#FF6B35] transition-colors">Pricing</a></li>
+                        <li><a href="geo-casestudies.html" class="text-gray-400 text-sm hover:text-[#FF6B35] transition-colors">Case Studies</a></li>
+                        <li><a href="index.html#contact" class="text-gray-400 text-sm hover:text-[#FF6B35] transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company Column -->
+                <div>
+                    <h4 class="font-semibold mb-4">Company</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html#about" class="text-gray-400 text-sm hover:text-[#FF6B35] transition-colors">About</a></li>
+                        <li><a href="privacy-policy.html" class="text-gray-400 text-sm hover:text-[#FF6B35] transition-colors">Privacy Policy</a></li>
+                        <li><a href="terms.html" class="text-gray-400 text-sm hover:text-[#FF6B35] transition-colors">Terms of Service</a></li>
+                    </ul>
+                </div>
+
+                <!-- Gemini Verification Badge Column -->
+                <div class="lg:col-span-1">
+                    <h4 class="font-semibold mb-4 text-white">Verification</h4>
+                    <div class="gemini-badge cursor-pointer relative group">
+                        <div class="relative flex items-center gap-2 px-4 py-3 bg-gradient-to-br from-[#1E3A5F] to-[#0F172A] border border-[#4E8AFF]/40 rounded-xl shadow-[0_0_20px_rgba(78,138,255,0.3)] overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-r from-[#4E8AFF]/20 via-[#A26BFF]/20 to-[#4E8AFF]/20 animate-pulse"></div>
+                            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out"></div>
+                            <div class="relative z-10 w-8 h-8 rounded-lg bg-gradient-to-br from-[#4E8AFF] to-[#A26BFF] flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L14.5 9.5L21 12L14.5 14.5L12 21L9.5 14.5L3 12L9.5 9.5L12 2Z"/></svg>
+                            </div>
+                            <div class="relative z-10 text-left min-w-0">
+                                <div class="text-white font-bold text-sm truncate">Gemini</div>
+                                <div class="text-[#4E8AFF] text-xs font-semibold">Verified Entity</div>
+                            </div>
+                            <div class="relative z-10 flex-shrink-0">
+                                <svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Divider -->
+            <div class="border-t border-white/10 pt-8">
+                <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <p class="text-gray-500 text-sm">Copyright © 2026 Rank GEO Pro. All rights reserved.</p>
+                    <div class="flex items-center gap-4">
+                        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#FF6B35] transition-colors" aria-label="Twitter">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path></svg>
+                        </a>
+                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#FF6B35] transition-colors" aria-label="LinkedIn">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path><circle cx="4" cy="4" r="2"></circle></svg>
+                        </a>
+                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#FF6B35] transition-colors" aria-label="Facebook">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path></svg>
+                        </a>
+                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#FF6B35] transition-colors" aria-label="Instagram">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"></path><circle cx="17.5" cy="6.5" r="1.5"></circle></svg>
+                        </a>
+                    </div>
+                    <p class="text-gray-500 text-sm">Questions? Email <a href="mailto:service@rankgeo.pro" class="text-[#FF6B35] hover:underline">service@rankgeo.pro</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>
+    </button>
+
+    <script>
+        lucide.createIcons();
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) entry.target.classList.add('visible');
+                });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.scroll-reveal').forEach((el) => observer.observe(el));
+        });
+    </script>
+</body>
+</html>
